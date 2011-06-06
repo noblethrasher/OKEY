@@ -69,8 +69,7 @@ namespace OKey
 
         void Init(SearchResult result)
         {
-            Authenticated = true;
-
+            
             Func<string, string> _r = s =>
             {
                 string p = "";
@@ -94,6 +93,9 @@ namespace OKey
             Roles = new InternalList () { xs = _r ("memberOf").Split (',') };
 
             id = new InternalIdClass (this);
+
+            Authenticated = true;
+
         }
 
         public static bool operator true(OkeyUser user)
@@ -154,7 +156,6 @@ namespace OKey
         {
             get { return id; }
         }
-
 
         class _strComparer : IEqualityComparer<string>
         {
